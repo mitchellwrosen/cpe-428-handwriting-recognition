@@ -11,7 +11,7 @@ h(x(i)) = [           ...             ] =
 So, get h = [h(x(1)) h(x(2)) ... h(x(m))] (size KxM) so that
         h(i,j) = p(y(j) = i|x(j);theta)
 %}
-function h = softmax_hypothesis(x, theta)
+function h = hypothesis(x, theta)
    h = exp(theta' * x);
    h = h ./ sum(h); % Normalize (Matlab needs bsxfun).
 end

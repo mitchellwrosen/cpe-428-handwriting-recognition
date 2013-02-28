@@ -1,13 +1,10 @@
-% Calculates the derivatives of J with respect to j.
-% x is (D+1)xM
-% y is Mx1
-% theta is (D+1)xK
-% grad is (D+1)xK
-function grad = softmax_cost_derivative(x, y, theta)
+% Calculates d/dT J(T)
+% x is (D+1)xM, y is Mx1, theta is (D+1)xK, grad is (D+1)xK
+function grad = cost_derivative(x, y, theta)
    m = columns(x);
    k = columns(theta);
 
-   h = softmax_hypothesis(x, theta);
+   h = hypothesis(x, theta);
 
    grad = -1/m * x * ((repmat(y',k,1) == [1:k]') - h)';
 end
